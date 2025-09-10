@@ -1,5 +1,5 @@
 ---
-title: "Statistical learning and data mining"
+title: "Statistical learning and data mining (Master's Degree)"
 collection: teaching
 type: "Teaching assistant"
 permalink: /teaching/TP-1
