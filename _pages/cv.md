@@ -11,35 +11,24 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D in Fairness in Graph Learning, Télécom Paris - Deezer Research, 2026 (expected) 
+* M.S. in Statistical Learning (Master MVA Mathématiques, Vision, Apprentissage), ENS Paris-Saclay, 2023
+* M.S. in Statistical Learning, ENSAE, 2023
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* May-November 2023: Research Scientist Intern
+  * Deezer Research, Paris, France
+  * Supervisor: Bruno Sguerra, Manuel Moussallam
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* September 2021 - March 2022: Data Scientist Intern
+  * Louis Bachelier Institute, Paris, France
+  * Natural Language Processing 
+ 
+* May-August 2021: Research Scientist Intern
+  * CETIC, Charleroi, Belgium
+  * Computer Vision for stenosis detection
+  * Supervisor: Xavier Lessage
 
 Publications
 ======
@@ -47,11 +36,6 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
   
 Teaching
 ======
@@ -59,6 +43,3 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
