@@ -9,25 +9,31 @@ redirect_from:
 
 {% include base_path %}
 
+Research interests
+======
+Graph theory and combinatorics: realizability problems, edge-girth sequences, extremal graphs. Prior work in algorithmic fairness for graph link prediction and in user modeling on music streaming data.
+
 Education
 ======
-* Ph.D in Fairness in Graph Learning, Télécom Paris - Deezer Research, 2026 (expected) 
-* M.S. in Statistical Learning (Master MVA Mathématiques, Vision, Apprentissage), ENS Paris-Saclay, 2023
-* M.S. in Statistical Learning, ENSAE, 2023
+* **Ph.D. candidate, Télécom Paris**, Paris, France, 2024 – 2027 (defense planned for January 2027)
+  * *Predicting Edges, Constraining Edges: From Fairness in Link Prediction to Edge-Girth Realizability*
+  * Advisors: Charlotte Laclau, Tiphaine Viard, Bruno Sguerra
+  * Research area: graph theory, combinatorics, machine learning, algorithmic fairness
+* **Master's degree MVA (Mathematics, Vision, Learning), ENS Paris-Saclay**, Paris, France, 2022 – 2023
+  * Relevant courses: convex optimization, kernel methods for machine learning, deep learning, time series analysis, image denoising, introduction to digital imaging, deep learning in practice
+* **Engineering degree, ENSAE Paris** (Data Science, Statistics and Learning), Palaiseau, France, 2019 – 2023
+  * Relevant courses: Bayesian statistics, machine learning theory, reinforcement learning, Monte Carlo methods, optimization
 
-Work experience
+Internships
 ======
-* May-November 2023: Research Scientist Intern
-  * Deezer Research, Paris, France
-  * Supervisor: Bruno Sguerra, Manuel Moussallam
-
-* September 2021 - March 2022: Data Scientist Intern
-  * Louis Bachelier Institute, Paris, France
-  * Natural Language Processing 
- 
-* May-August 2021: Research Scientist Intern
-  * CETIC, Charleroi, Belgium
-  * Computer Vision for stenosis detection
+* **Deezer Research**, Paris, France, May – November 2023
+  * Music taste modeling: user embeddings based on listening regularities
+  * Encoding user activity into time series, pattern detection through dictionary learning
+  * Supervisors: Bruno Sguerra, Manuel Moussallam
+* **Louis Bachelier Institute**, Paris, France, September 2021 – March 2022
+  * Natural language processing: sentence embeddings, sentiment analysis, topic modeling
+* **CETIC**, Charleroi, Belgium, May – August 2021
+  * Hybrid CNN and LSTM neural networks for the detection of stenoses in coronary arteries from X-ray images
   * Supervisor: Xavier Lessage
 
 Publications
@@ -35,11 +41,21 @@ Publications
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-  
+
+Talks
+======
+  <ul>{% for post in site.talks reversed %}
+    {% include archive-single-talk-cv.html %}
+  {% endfor %}</ul>
+
 Teaching
 ======
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
+Skills
+======
+* Languages: French, English, Spanish
+* Computational tools: exhaustive graph generation and verification of constructions (networkx, nauty)
+* Programming: Python (numpy, PyTorch, scikit-learn, pandas)
