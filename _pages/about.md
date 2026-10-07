@@ -14,3 +14,5 @@ My research spans several areas:
 * **Graph machine learning:** fairness and expressivity of graph neural networks
 * **Graph theory and combinatorics**
 * **Music recommendation and user modeling**
+
+{% include graph-figure.html %}

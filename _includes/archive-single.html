@@ -13,7 +13,7 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item{% if post.collection == 'publications' %} pub-item pub-item--{{ post.category }}{% endif %}" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
@@ -40,7 +40,7 @@
 
         {% if post.collection == 'teaching' %}
           {% assign teaching_year = post.date | default: "1900-01-01" | date: "%Y" %}
-          <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.period | default: teaching_year }} </p>
+          <p class="archive__item-meta">{{ post.type }} · {{ post.venue }} · {{ post.period | default: teaching_year }}</p>
         {% elsif post.collection == 'publications' %}
           <p>{% include publication-badge.html category=post.category %} {% if post.category == 'manuscripts' or post.category == 'conferences' %}Published in {% endif %}<i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif post.date %}

@@ -36,9 +36,11 @@ layout: default
         
         {% if page.collection == 'teaching' %}
           {% assign teaching_year = page.date | default: "1900-01-01" | date: "%Y" %}
-          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.period | default: teaching_year }} </p>
+          <p class="archive__item-meta">{{ page.type }} · {{ page.venue }} · {{ page.period | default: teaching_year }}</p>
+        {% elsif page.collection == 'publications' %}
+          <div class="pub">{% include publication-meta.html pub=page %}</div>
         {% elsif page.venue and page.date %}
-          <p>{% if page.collection == 'publications' %}{% include publication-badge.html category=page.category %} {% endif %}{% if page.category == 'manuscripts' or page.category == 'conferences' %}Published in {% endif %}<i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+          <p><i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}    
@@ -46,6 +48,11 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+        {% if page.collection == 'publications' %}
+        {% if page.abstract %}<h2>Abstract</h2>{{ page.abstract | markdownify }}{% endif %}
+        {{ content }}
+        {% if page.citation %}<h2>Citation</h2><p class="pub__citation">{{ page.citation }}</p>{% endif %}
+        {% else %}
         {{ content }}
 
         {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
@@ -75,6 +82,7 @@ layout: default
         {% endif %}
 
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        {% endif %}
       </section>
 
       <footer class="page__meta">
@@ -86,7 +94,6 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% include post_pagination.html %}
     </div>
 
     {% if site.comments.provider and page.comments %}

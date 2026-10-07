@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PUBLICATIONS
+   PUBLICATIONS AND PRESENTATIONS
    ========================================================================== */
 
 /* One color per publication category (keys of publication_category in _config.yml) */
@@ -19,33 +19,240 @@ html[data-theme="dark"] {
 
 .pub-badge {
   display: inline-block;
-  margin-right: 0.4em;
-  padding: 0.1em 0.6em;
+  margin-right: 0.5em;
+  padding: 0.05em 0.45em;
   border: 1px solid currentColor;
-  border-radius: $border-radius;
-  font-size: $type-size-6;
-  font-weight: bold;
-  letter-spacing: 0.03em;
+  border-radius: 3px;
+  font-family: $monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
   text-transform: uppercase;
-  vertical-align: middle;
+  vertical-align: 0.12em;
   white-space: nowrap;
-}
-
-.pub-legend .pub-badge {
-  margin-bottom: 0.4em;
-}
-
-.pub-item {
-  padding-left: 1em;
-  border-left: 4px solid var(--global-border-color);
 }
 
 @each $category in preprints, manuscripts, conferences, workshops {
   .pub-badge--#{$category} {
     color: var(--pub-#{$category}-color);
   }
+}
 
-  .pub-item--#{$category} {
-    border-left-color: var(--pub-#{$category}-color);
+/* Presentation type (Poster, Talk): neutral, the venue carries the information */
+.pub-badge--event {
+  color: var(--global-text-color-light);
+}
+
+.pub-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 2rem;
+
+  .pub-badge {
+    margin: 0;
   }
+}
+
+/*
+   Timeline: each year is a vertex on a vertical path
+   ========================================================================== */
+
+.timeline {
+  display: grid;
+  gap: 2.25rem;
+  margin: 0 0 0 0.45rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--global-border-color);
+}
+
+.timeline__year,
+.timeline__items {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.archive .timeline__label {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: $monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--global-text-color);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(-1.5rem - 8px);
+    width: 14px;
+    height: 14px;
+    box-sizing: border-box;
+    border: 2px solid var(--global-link-color);
+    border-radius: 50%;
+    background: var(--global-bg-color);
+    transform: translateY(-50%);
+  }
+}
+
+/*
+   Publication entry: title, authors, venue, links, collapsible abstract
+   ========================================================================== */
+
+.pub {
+  display: grid;
+  gap: 0.15rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.pub__title {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.4;
+
+  a {
+    color: var(--global-text-color);
+  }
+
+  a:hover {
+    color: var(--global-link-color);
+  }
+}
+
+.pub__authors {
+  font-size: 0.92rem;
+  color: var(--global-text-color-light);
+
+  b {
+    font-weight: 600;
+    color: var(--global-text-color);
+  }
+}
+
+.pub__venue {
+  font-size: 0.92rem;
+}
+
+.page .pub__authors,
+.page .pub__venue {
+  margin: 0 0 0.3rem;
+}
+
+.pub__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.9rem;
+  margin-top: 0.15rem;
+  font-family: $monospace;
+  font-size: 0.78rem;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.pub__abstract {
+  summary {
+    width: max-content;
+    font-family: $monospace;
+    font-size: 0.78rem;
+    color: var(--global-link-color);
+    cursor: pointer;
+  }
+
+  p {
+    max-width: 65ch;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+  }
+}
+
+.pub__citation {
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+/*
+   Presentations, grouped by work
+   ========================================================================== */
+
+.talks {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.talk {
+  display: grid;
+  gap: 0.3rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.talk__title {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.4;
+}
+
+.talk__events {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0 0.6rem;
+    margin: 0;
+  }
+
+  .pub-badge {
+    flex: none;
+    margin: 0;
+  }
+
+  // On phones the year follows the venue instead of taking a column
+  @include breakpoint(max-width $small) {
+    li {
+      display: block;
+    }
+
+    .pub-badge {
+      margin-right: 0.5em;
+    }
+
+    .talk__when::before {
+      content: " \00B7  ";
+    }
+  }
+}
+
+.talk__where {
+  flex: 1;
+  min-width: 0;
+}
+
+.talk__when {
+  flex: none;
+  font-family: $monospace;
+  font-size: 0.75rem;
+  color: var(--global-text-color-light);
+  white-space: nowrap;
 }

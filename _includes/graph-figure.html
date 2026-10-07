@@ -1,0 +1,13 @@
+{% include base_path %}
+<figure class="graph-figure">
+  <canvas role="img" aria-label="A small graph drawn with a force layout: a triangle, a 4-cycle and a 5-cycle chained together, then a tree attached by a bridge. Edges are shaded by their edge-girth, and the vertices can be dragged."></canvas>
+  <figcaption>
+    <span>drag the vertices · edges shaded by edge-girth</span>
+    <span class="graph-figure__key" style="--key-color: var(--graph-girth-3)"><i></i>3</span>
+    <span class="graph-figure__key" style="--key-color: var(--graph-girth-4)"><i></i>4</span>
+    <span class="graph-figure__key" style="--key-color: var(--graph-girth-5)"><i></i>5</span>
+    <span class="graph-figure__key graph-figure__key--inf" style="--key-color: var(--graph-girth-inf)"><i></i>∞</span>
+    <span class="graph-figure__sequence"></span>
+  </figcaption>
+</figure>
+<script src="{{ base_path }}/assets/js/graph-figure.js" defer></script>

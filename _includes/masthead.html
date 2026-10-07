@@ -4,16 +4,22 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+        <button class="hidden"><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title }}</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg persist">
+            <a class="masthead__brand" href="{{ base_path }}/">
+              <svg class="masthead__glyph" viewBox="0 0 24 12" aria-hidden="true" focusable="false"><line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="1.6"/><circle cx="4" cy="6" r="3.2" fill="currentColor"/><circle cx="20" cy="6" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span class="masthead__name">{{ site.title }}</span>
+              {% if site.author.bio %}<span class="masthead__role">{{ site.author.bio }}</span>{% endif %}
+            </a>
+          </li>
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
           {% endfor %}
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>

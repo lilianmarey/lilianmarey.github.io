@@ -1,0 +1,434 @@
+/* ==========================================================================
+   SITE LAYOUT AND TYPOGRAPHY
+   Overrides on top of the academicpages theme (IBM Plex, petrol accent).
+   Imported last in assets/css/main.scss so it wins over the theme partials.
+   ========================================================================== */
+
+$site-width  : 1120px;
+$site-gutter : 1.25rem;
+
+body {
+  padding-bottom: 7em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* The theme transitions every property of most text elements, which makes the
+   colors fade on each page load in dark mode; keep only a short hover fade on links */
+b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td,
+form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
+  transition: none;
+}
+
+a {
+  transition: color 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead,
+  #main,
+  .page__footer {
+    animation: none;
+  }
+
+  a {
+    transition: none;
+  }
+}
+
+/*
+   Masthead: brand on the left, lowercase mono menu on the right.
+   The visible list spans the whole nav and the greedy-nav button starts hidden
+   (see _includes/masthead.html), so on narrow screens the menu wraps onto a
+   second line instead of collapsing into the dropdown.
+   ========================================================================== */
+
+.masthead__inner-wrap {
+  max-width: $site-width;
+  padding: 0.35rem $site-gutter;
+}
+
+.greedy-nav {
+  .visible-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+
+    li {
+      display: block;
+
+      &:first-child {
+        margin-right: auto;
+
+        // On phones the name gets its own line and the menu starts on the next one
+        @include breakpoint(max-width $medium) {
+          flex: 1 0 100%;
+        }
+      }
+    }
+
+    a::before {
+      display: none;
+    }
+  }
+
+  a {
+    margin: 0 0.65rem;
+    padding: 0.55rem 0;
+    font-family: $monospace;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    color: var(--global-text-color-light);
+
+    &:hover,
+    &[aria-current="page"] {
+      color: var(--global-link-color);
+    }
+  }
+
+  .visible-links .masthead__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-left: 0;
+    font-family: $sans-serif;
+    font-size: 1.05rem;
+    text-transform: none;
+    color: var(--global-text-color);
+
+    &:hover {
+      color: var(--global-text-color);
+    }
+  }
+
+  .hidden-links {
+    background: var(--global-bg-color);
+
+    &::after {
+      border-color: var(--global-bg-color) transparent;
+    }
+  }
+}
+
+.masthead__glyph {
+  flex: none;
+  width: 1.5em;
+  height: 0.75em;
+  color: var(--global-link-color);
+}
+
+.masthead__name {
+  font-weight: 600;
+}
+
+.masthead__role {
+  font-family: $monospace;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+
+  @include breakpoint(max-width $medium) {
+    display: none;
+  }
+}
+
+/*
+   Page grid: sticky profile column + reading column, centered on wide screens
+   ========================================================================== */
+
+#main {
+  max-width: $site-width;
+  margin-top: 2.5rem;
+  padding-left: $site-gutter;
+  padding-right: $site-gutter;
+
+  @include breakpoint($large) {
+    display: grid;
+    grid-template-columns: 12.5rem minmax(0, 1fr);
+    column-gap: 3.5rem;
+    align-items: start;
+
+    &::after {
+      display: none;
+    }
+
+    > .sidebar {
+      position: sticky;
+      top: calc(#{$masthead-height} + 1.5rem);
+      float: none;
+      width: auto;
+      max-width: none;
+      height: auto;
+      margin: 0;
+      padding-top: 0 !important; // greedy-nav sets an inline padding meant for the old fixed sidebar
+      overflow: visible;
+    }
+
+    > .archive,
+    > .page {
+      float: none;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+  }
+}
+
+.archive,
+.page__inner-wrap {
+  max-width: 38rem;
+}
+
+.page__title {
+  margin-bottom: 1.25rem;
+  font-size: 1.75rem;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.page__content {
+  h2 {
+    margin-top: 2rem;
+    padding-bottom: 0.4rem;
+    font-family: $monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+  }
+}
+
+/*
+   Profile column
+   ========================================================================== */
+
+.author__avatar img {
+  border-radius: 8px;
+
+  @include breakpoint($large) {
+    width: 100%;
+    max-width: 11rem;
+    padding: 0;
+    border: 0;
+  }
+}
+
+.sidebar .author__name {
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  @include breakpoint($large) {
+    margin: 0.9rem 0 0.3rem;
+  }
+}
+
+.sidebar .author__pronouns,
+.sidebar .author__bio {
+  font-family: $monospace;
+  font-size: 0.72rem;
+  color: var(--global-text-color-light);
+
+  @include breakpoint($large) {
+    margin: 0 0 0.3rem;
+  }
+}
+
+.sidebar .author__bio {
+  @include breakpoint($large) {
+    margin-bottom: 1.1rem;
+  }
+}
+
+.author__urls {
+  li,
+  a {
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+  }
+
+  a:hover {
+    color: var(--global-link-color);
+    text-decoration: none;
+  }
+}
+
+/* Brand colors that disappear on the dark background */
+html[data-theme="dark"] .social-icons {
+  .fa-github,
+  .fa-building-columns,
+  .fa-location-dot,
+  .fa-envelope {
+    color: var(--global-text-color);
+  }
+
+  .fa-linkedin {
+    color: #6fa8dc;
+  }
+}
+
+/*
+   Lists (teaching, CV) and CV section headings
+   ========================================================================== */
+
+.archive {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  > h1:not(.page__title) {
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--global-border-color);
+    font-family: $monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+  }
+}
+
+.archive__item-title {
+  margin: 0 0 0.2rem;
+  font-size: 1.02rem;
+  line-height: 1.4;
+
+  a + a {
+    opacity: 0.6;
+  }
+}
+
+.archive .archive__item-title a {
+  color: var(--global-text-color);
+
+  &:hover {
+    color: var(--global-link-color);
+  }
+}
+
+.archive__item-meta,
+.archive .page__meta {
+  margin: 0 0 0.35rem;
+  font-family: $monospace;
+  font-size: 0.75rem;
+  color: var(--global-text-color-light);
+}
+
+.archive__item-excerpt {
+  font-size: 0.92rem;
+
+  p {
+    margin-bottom: 0.4rem;
+  }
+}
+
+.list__item .archive__item {
+  margin-bottom: 1.6rem;
+}
+
+/*
+   Footer: one line, aligned with the page grid
+   ========================================================================== */
+
+.page__footer {
+  border-top: 1px solid var(--global-border-color);
+
+  footer {
+    max-width: $site-width;
+    margin-top: 0;
+    padding: 1.25rem $site-gutter;
+  }
+}
+
+.page__footer-copyright {
+  font-family: $monospace;
+  font-size: 0.72rem;
+  color: var(--global-text-color-light);
+}
+
+/*
+   Home page graph: a small graph whose vertices can be dragged,
+   edges shaded by their edge-girth (see assets/js/graph-figure.js)
+   ========================================================================== */
+
+.graph-figure {
+  --graph-ink        : var(--global-text-color);
+  --graph-halo       : var(--global-link-color);
+  --graph-girth-3    : #0b5f7a;
+  --graph-girth-4    : #3d8199;
+  --graph-girth-5    : #6f9aab;
+  --graph-girth-inf  : #8a959f;
+
+  margin: 2.5rem 0 0;
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 15rem;
+    touch-action: none; // dragging a vertex must not scroll the page on touch screens
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.9rem;
+    margin-top: 0.4rem;
+    font-family: $monospace;
+    font-size: 0.68rem;
+    color: var(--global-text-color-light);
+  }
+}
+
+html[data-theme="dark"] .graph-figure {
+  --graph-girth-3    : #6fc0d8;
+  --graph-girth-4    : #4f97ac;
+  --graph-girth-5    : #3f7183;
+  --graph-girth-inf  : #5f6e7a;
+}
+
+.graph-figure__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  i {
+    display: inline-block;
+    width: 1.1rem;
+    height: 0;
+    border-top: 2px solid var(--key-color);
+  }
+
+  &--inf i {
+    border-top-style: dashed;
+  }
+}
+
+.graph-figure__sequence {
+  font-variant-numeric: tabular-nums;
+
+  &:empty {
+    display: none;
+  }
+
+  sup {
+    font-size: 0.75em;
+  }
+}

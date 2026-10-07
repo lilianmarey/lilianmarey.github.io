@@ -5,6 +5,25 @@ permalink: /talks/
 author_profile: true
 ---
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
+{% include base_path %}
+
+<!-- One entry per work (talks sharing a title), most recent first -->
+{% assign talks = site.talks | reverse %}
+{% assign works = talks | group_by: "title" %}
+<div class="talks">
+{% for work in works %}
+  {% assign first = work.items | first %}
+  <article class="talk">
+    <h2 class="talk__title">{{ work.name }}</h2>
+    <ul class="talk__events">
+      {% for talk in work.items %}
+        <li><span class="pub-badge pub-badge--event">{{ talk.type }}</span><span class="talk__where">{{ talk.venue }}, {{ talk.location }}</span><span class="talk__when">{% include talk-date.html date=talk.date %}</span></li>
+      {% endfor %}
+    </ul>
+    {% if first.paperurl %}
+      {% if first.paperurl contains '://' %}{% assign paper_href = first.paperurl %}{% else %}{% assign paper_href = first.paperurl | prepend: base_path %}{% endif %}
+      <p class="pub__links"><a href="{{ paper_href }}">[paper]</a></p>
+    {% endif %}
+  </article>
 {% endfor %}
+</div>

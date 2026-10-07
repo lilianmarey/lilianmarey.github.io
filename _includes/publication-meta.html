@@ -1,0 +1,6 @@
+{% comment %}Authors (site author in bold), venue with its colored badge, and the links of one publication (param: pub){% endcomment %}
+{% assign pub = include.pub %}
+{% capture me %}<b>{{ site.author.name }}</b>{% endcapture %}
+{% if pub.authors %}<p class="pub__authors">{{ pub.authors | replace: site.author.name, me }}</p>{% endif %}
+<p class="pub__venue">{% include publication-badge.html category=pub.category %}<i>{{ pub.venue }}</i>, {{ pub.date | date: "%Y" }}</p>
+{% if pub.links %}<p class="pub__links">{% for item in pub.links %}<a href="{{ item.url }}">[{{ item.label }}]</a>{% endfor %}</p>{% endif %}

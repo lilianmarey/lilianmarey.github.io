@@ -12,8 +12,10 @@ Built with Jekyll from the [Academic Pages](https://github.com/academicpages/aca
 | CV | `_pages/cv.md` |
 | Sidebar, site settings, publication categories | `_config.yml` |
 | Top menu | `_data/navigation.yml` |
-| Publications | `_publications/*.md`, listed by date; `category` (`preprints`, `manuscripts`, `conferences` or `workshops`) sets the colored badge, `link` makes the title point to an external page |
-| Presentations (talks, posters) | `_talks/*.md`, `type` is "Talk" or "Poster" (only the year is displayed; entries dated after the last build are marked "upcoming") |
+| Publications | `_publications/*.md`, listed by date. Front matter: `authors` (your name is bolded automatically), `venue`, `category` (`preprints`, `manuscripts`, `conferences` or `workshops`, sets the colored badge), `links` (list of `{ label, url }`), `abstract` (`$$…$$` for math), `citation` (used on the CV), optional `link` to make the title point to an external page |
+| Presentations (talks, posters) | `_talks/*.md`, grouped by `title` on the page; `type` is "Talk" or "Poster", `paperurl` adds a [paper] link (only the year is displayed; entries dated after the last build are marked "upcoming") |
+| Home page graph | `_includes/graph-figure.html` and `assets/js/graph-figure.js` (edit `EDGES` to change the graph) |
+| Styles | `_sass/layout/_site.scss` (layout, header, sidebar, footer, graph) and `_sass/layout/_publications.scss`; colors in `_sass/theme/_default_light.scss` and `_default_dark.scss` |
 | Teaching | `_teaching/*.md` (`period` is displayed instead of the year when set) |
 | Downloadable files (PDFs…) | `files/`, served at `/files/<name>` |
 

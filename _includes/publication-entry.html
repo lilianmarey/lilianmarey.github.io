@@ -1,0 +1,6 @@
+{% include base_path %}
+<article class="pub" itemscope itemtype="http://schema.org/ScholarlyArticle">
+  <h3 class="pub__title" itemprop="headline"><a href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}">{{ post.title }}</a></h3>
+  {% include publication-meta.html pub=post %}
+  {% if post.abstract %}<details class="pub__abstract"><summary>[abstract]</summary>{{ post.abstract | markdownify }}</details>{% endif %}
+</article>
