@@ -5,7 +5,7 @@ category: preprints
 permalink: /publication/2026-07-28-REALIZABILITY
 excerpt: 'Characterization of the sequences that are realizable as the edge-girth sequence of a simple connected graph.'
 date: 2026-07-28
-venue: 'Preprint, submitted to The Electronic Journal of Combinatorics'
+venue: 'Submitted to The Electronic Journal of Combinatorics'
 paperurl: 'https://arxiv.org/pdf/2607.25629'
 citation: '<strong>Lilian Marey</strong>, Paul Hilaire, Charlotte Laclau. On the Realizability of Edge-Girth Sequences. Preprint, arXiv:2607.25629, 2026.'
 ---

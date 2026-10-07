@@ -78,16 +78,17 @@ author:
   youtube          : # Username
   zhihu            : # Username
 
-# Publication Category - The following the list of publication categories and their headings
+# Publication Category - The list of publication categories and the label of their colored badge
+#                        (colors are set in _sass/layout/_publications.scss)
 publication_category:
   preprints:
-    title: 'Preprints'
+    title: 'Preprint'
   manuscripts:
-    title: 'Journal Articles'
+    title: 'Journal'
   conferences:
-    title: 'Conference Papers'
+    title: 'Conference'
   workshops:
-    title: 'Workshop Papers'
+    title: 'Workshop'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"

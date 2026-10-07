@@ -12,10 +12,11 @@ I am a **PhD candidate at Télécom Paris** (LTCI lab., IDS Department, S2A team
 Research
 ======
 
-My research started with machine learning on real-world data and has gradually moved toward graph theory.
+My research spans several areas:
 
-* **User modeling on music streaming data.** I started at Deezer Research, as a research intern and then during the first year of my PhD, by modeling how people listen to music: user embeddings built from periodic listening patterns ([PACE](/publication/2024-03-10-PACE), CHIIR 2024), a reproducibility study on how recommender systems affect local music ([RecSys 2024](/publication/2024-10-14-LOCAL)), and musical genre trajectories described by recurring patterns called pathlets ([UMAP 2025](/publication/2025-06-16-PATHLET)).
-* **Fairness in graph link prediction.** I then studied how the structure of a graph shapes the fairness of link prediction: structural biases that go beyond homophily ([TMLR 2026](/publication/2026-09-22-STRUCTURAL-BIAS)), and *k*-hop fairness, which measures disparities as a function of the distance between nodes ([preprint](/publication/2026-03-04-KHOP), short version at ECAF 2026).
-* **Graph theory and combinatorics.** I now work on realizability problems. With Paul Hilaire and Charlotte Laclau, I characterized the sequences that are realizable as the edge-girth sequence of a simple connected graph ([preprint](/publication/2026-07-28-REALIZABILITY)). I also use the edge-girth as a structural edge feature for graph neural networks ([NeurIPS 2026 workshop](/publication/2026-09-01-EDGE-GIRTH-GNN)).
+* **Graph theory and combinatorics.** Realizability problems: with Paul Hilaire and Charlotte Laclau, a characterization of the sequences that are realizable as the edge-girth sequence of a simple connected graph ([preprint](/publication/2026-07-28-REALIZABILITY)).
+* **Graph machine learning and GNN expressivity.** The edge-girth as a structural edge feature for message-passing graph neural networks, and a proof that it cannot go beyond the 1-WL test on graphs where all edges have the same edge-girth and multiplicity ([NeurIPS 2026 workshop](/publication/2026-09-01-EDGE-GIRTH-GNN)).
+* **Fairness in machine learning.** How the structure of a graph shapes the fairness of link prediction: structural biases that go beyond homophily ([TMLR 2026](/publication/2026-09-22-STRUCTURAL-BIAS)), and *k*-hop fairness, which measures disparities as a function of the distance between nodes ([preprint](https://arxiv.org/abs/2603.03867), short version at ECAF 2026).
+* **User modeling.** Music listening behavior on streaming data, in collaboration with Deezer Research: user embeddings built from periodic listening patterns ([PACE](/publication/2024-03-10-PACE), CHIIR 2024), a reproducibility study on how recommender systems affect local music ([RecSys 2024](/publication/2024-10-14-LOCAL)), and musical genre trajectories described by recurring patterns called pathlets ([UMAP 2025](/publication/2025-06-16-PATHLET)).
 
-**Current interests:** graph theory, combinatorics, realizability problems, edge-girth sequences, extremal graphs.
+**Current interests:** graph theory, combinatorics, graph machine learning, expressivity of graph neural networks, fairness in machine learning, user modeling.

@@ -11,7 +11,7 @@ redirect_from:
 
 Research interests
 ======
-Graph theory and combinatorics: realizability problems, edge-girth sequences, extremal graphs. Prior work in algorithmic fairness for graph link prediction and in user modeling on music streaming data.
+Graph theory, combinatorics, graph machine learning, expressivity of graph neural networks, fairness in machine learning, user modeling.
 
 Education
 ======
@@ -42,7 +42,7 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-Talks
+Presentations
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html %}

@@ -1,0 +1,51 @@
+/* ==========================================================================
+   PUBLICATIONS
+   ========================================================================== */
+
+/* One color per publication category (keys of publication_category in _config.yml) */
+:root {
+  --pub-preprints-color   : #6f4fa0;
+  --pub-manuscripts-color : #2c6aa8;
+  --pub-conferences-color : #2a7a4b;
+  --pub-workshops-color   : #a65a00;
+}
+
+html[data-theme="dark"] {
+  --pub-preprints-color   : #d2bdf5;
+  --pub-manuscripts-color : #a8d0f7;
+  --pub-conferences-color : #9fdcb4;
+  --pub-workshops-color   : #f7c48a;
+}
+
+.pub-badge {
+  display: inline-block;
+  margin-right: 0.4em;
+  padding: 0.1em 0.6em;
+  border: 1px solid currentColor;
+  border-radius: $border-radius;
+  font-size: $type-size-6;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.pub-legend .pub-badge {
+  margin-bottom: 0.4em;
+}
+
+.pub-item {
+  padding-left: 1em;
+  border-left: 4px solid var(--global-border-color);
+}
+
+@each $category in preprints, manuscripts, conferences, workshops {
+  .pub-badge--#{$category} {
+    color: var(--pub-#{$category}-color);
+  }
+
+  .pub-item--#{$category} {
+    border-left-color: var(--pub-#{$category}-color);
+  }
+}

@@ -12,8 +12,8 @@ Built with Jekyll from the [Academic Pages](https://github.com/academicpages/aca
 | CV | `_pages/cv.md` |
 | Sidebar, site settings, publication categories | `_config.yml` |
 | Top menu | `_data/navigation.yml` |
-| Publications | `_publications/*.md` (`category`: `preprints`, `manuscripts`, `conferences` or `workshops`) |
-| Talks | `_talks/*.md` (only the year is displayed; talks dated after the last build are marked "upcoming") |
+| Publications | `_publications/*.md`, listed by date; `category` (`preprints`, `manuscripts`, `conferences` or `workshops`) sets the colored badge, `link` makes the title point to an external page |
+| Presentations (talks, posters) | `_talks/*.md`, `type` is "Talk" or "Poster" (only the year is displayed; entries dated after the last build are marked "upcoming") |
 | Teaching | `_teaching/*.md` (`period` is displayed instead of the year when set) |
 | Downloadable files (PDFs…) | `files/`, served at `/files/<name>` |
 
