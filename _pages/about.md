@@ -11,8 +11,8 @@ I am a **PhD candidate at Télécom Paris** (LTCI lab., IDS Department, S2A team
 
 My research spans several areas:
 
-* **Graph machine learning:** fairness and expressivity of graph neural networks
-* **Graph theory and combinatorics**
+* **Graph machine learning:** fairness, link prediction, expressivity of GNN
+* **Graph theory and combinatorics:** cycles, edge-girth
 * **Music recommendation and user modeling**
 
 {% include graph-figure.html %}

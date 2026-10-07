@@ -17,12 +17,12 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   // A triangle, a 4-cycle and a 5-cycle chained through cut vertices, then a pendant tree
-  var N = 13;
+  var N = 12
   var EDGES = [
     [0, 1], [1, 2], [2, 0],
     [2, 3], [3, 4], [4, 5], [5, 2],
-    [5, 6], [6, 7], [7, 8], [8, 9], [9, 5],
-    [9, 10], [10, 11], [10, 12]
+    [5, 6], [6, 7], [7, 8], [8, 0], [0, 5],
+    [0, 9], [9, 10], [9, 11]
   ];
 
   var adjacency = [];
